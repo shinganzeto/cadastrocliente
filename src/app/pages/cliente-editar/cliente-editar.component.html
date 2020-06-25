@@ -1,0 +1,28 @@
+<div>
+    <h3>Editar Cliente</h3>
+  </div>
+  <form class="example-container" [formGroup]="clienteForm" (ngSubmit)="updateCliente(clienteForm.value)">
+    <mat-form-field>
+      <input matInput name="nome" placeholder="Nome" formControlName="nome">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="sobrenome" placeholder="Sobrenome" formControlName="sobrenome">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="number" name="idade" placeholder="idade" formControlName="idade">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Sexo</mat-label>
+      <mat-select name="sexo" formControlName="sexo">
+        <mat-option value="Masculino">Masculino</mat-option>
+        <mat-option value="Feminino">Feminino</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div>
+      <button type="submit" [disabled]="!clienteForm.valid" mat-raised-button mat-button color="primary">Salvar</button>
+      &nbsp;
+      <button type="button" color="warn" mat-raised-button mat-button (click)="deleteCliente()">Deletar</button>
+      &nbsp;
+      <button type="button" routerLink="/" mat-raised-button mat-button >Cancelar</button>
+    </div>
+  </form>
